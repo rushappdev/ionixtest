@@ -48,17 +48,13 @@
   <span class="input-label" >Reason for request:</span>
   </label>
 
-<ion-radio ng-ng-model="choice" ng-repeat="r in reason">{{r}}</ion-radio>
+<ion-radio ng-repeat="c in choice" ng-value="c.value" ng-model="data.reason" ng-change="serversideChange(c)">{{c.text}}</ion-radio>
 
 </div>
 <div class="padding">
  <input type="submit" class="button-positive button button-block" name="submit" value="submit" ng-click="">
  </div>
- <div class="card">
-                    <div class="item item-text-wrap">
-                        Response: <b ng-bind="response"></b>
-                    </div>
-                </div>
+ 
  </form>
 	    </ion-content>
 	  </ion-modal-view>

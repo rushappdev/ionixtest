@@ -40,13 +40,13 @@ function ($scope, $stateParams) {
   })
 
 .controller('mCtrl', function($scope, $ionicModal) {
-      $scope.data = {
-        fName:"Rick",
-        lName:"Johnson",
-        email:"Rick@jhnson.com",
-        pNumber:"6938489343",
-        reason:"Business"
-      };
+      // $scope.data = {
+      //   fName:"Rick",
+      //   lName:"Johnson",
+      //   email:"Rick@jhnson.com",
+      //   pNumber:"6938489343",
+      //   reason:{"Business","Personal"}
+      // };
   $ionicModal.fromTemplateUrl('my-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -71,38 +71,40 @@ function ($scope, $stateParams) {
   $scope.$on('modal.removed', function() {
     // Execute action
   })
- 
-  $scope.sendFeedback= function() {
-        if(window.plugins && window.plugins.emailComposer) {
-            window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
-                console.log("Email success -> " + result);
-            }, 
-            "Feedback for your App", // Subject
-            "Name: "+ $scope.data.fName + " " + $scope.data.lName 
-            +"\n"
-            +"Email: "+ $scope.data + "\n"
-            +"Phone Number: "+ $scope.data.pNumber
-            +"Reason: "+ $scope.data.reason,                      // Body
-            ["test@gmail.com","thompson.rashaan@gmail.com"],    // To
-            null,                    // CC
-            null,                    // BCC
-            false,                   // isHTML
-            null,                    // Attachments
-            null                    // Attachment Data
-            )               
-        }
-    }
+  
+  // $scope.sendFeedback= function() {
+  //       if(window.plugins && window.plugins.emailComposer) {
+  //           window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+  //               console.log("Email success -> " + result);
+  //           }, 
+  //           "Feedback for your App", // Subject
+  //           "Name: "+ $scope.data.fName + " " + $scope.data.lName 
+  //           +"\n"
+  //           +"Email: "+ $scope.data + "\n"
+  //           +"Phone Number: "+ $scope.data.pNumber
+  //           +"Reason: "+ $scope.data.reason,                      // Body
+  //           ["test@gmail.com","thompson.rashaan@gmail.com"],    // To
+  //           null,                    // CC
+  //           null,                    // BCC
+  //           false,                   // isHTML
+  //           null,                    // Attachments
+  //           null                    // Attachment Data
+  //           )               
+  //       }
+  //   }
 })
 .controller('AppCtrl', function($scope, $http) {
-     $scope.data = {};
-
+$scope.data = {};
+     // $scope.choice = ["Business", "Personal"];
+       $scope.choice = [
+    { text: "Business", value: "business" },
+    { text: "Personal", value: "personal" }
+   ];
     $scope.submit = function(){
         // var link = 'http://nikola-breznjak.com/_testings/ionicPHP/api.php';
         // var link = 'http://127.0.0.1/main/Source/api.php';
         // var link = 'http://rawgit.com/rushappdev/myAPis/master/api.php';
         var link = 'api.php';
-
-         
 
         $http({
             method: 'POST',
@@ -112,8 +114,10 @@ function ($scope, $stateParams) {
       
         }).then(function (response){
             $scope.response = response.data;
-               $scope.codeStatus = response.data;
-        }) 
+               console.log("success: " + $scope.response);
+        }).error(function (response){
+              console.log("failed api call return:" + response);
+        }); 
     };
 })
 

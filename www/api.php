@@ -29,7 +29,8 @@
         $lName = $request->lName;
         $cusEmail = $request->email;
         $fNumber = $request->pNumber;
-        $message = $fName . ' ' . $lName . "\r\n" . $cusEmail . "\r\n" . $fNumber;
+        $reason = $request->choice;
+        $message = $fName . ' ' . $lName . "\r\n" . $cusEmail . "\r\n" . $fNumber . "\r\n Reason: " . $reason;
 
         if ($fName != "") {
             echo "Server returns: " . $message. "\r\n";
