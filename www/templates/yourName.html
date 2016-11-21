@@ -1,0 +1,66 @@
+<ion-view title="Enov - Empowering Innovation and Movation of Self" id="page2" ng-controller="mCtrl">
+  <ion-content ng-controller="shareCtrl" padding="true" class="has-header" style="background: url('img/enovltd.png');background-size:300px;">
+    <div style="margin: 0px; line-height: 250px; text-align: center;">
+      <div style="margin: 0 auto;width:200px;height:200px;border-radius:200px;background: url('img/prof-pic.jpg') no-repeat center;background-size: cover;"></div>
+    </div>
+    <div style="padding:40px 20px 0;" >
+	    
+		<div style="text-align:center;background:#FFFFFF;width:100%;">
+			<h2>
+				Rashaan Thompson 
+			</h2>
+		</div>
+		<button ng-controller="PopupCtrl" href="#" id="yourName-button1" ng-click="showAlert()" class="button button-assertive  button-block">About Me</button>
+	    <button href="#" id="yourName-button2" ng-click="modal.show()" class="button button-balanced button-block">Want your own app?</button>
+
+	    <button id="yourName-button3" ng-click="shareAnywhere()" class="button button-calm  button-block">Share!</button>
+	</div>
+  </ion-content>
+	<script id="my-modal.html" type="text/ng-template">
+	  <ion-modal-view>
+	    <ion-header-bar>
+	      <h1 class="title">Enter your information</h1>
+	       <button class="button button-assertive" ng-click="modal.hide()">close</button>
+	    </ion-header-bar>
+
+	    <ion-content ng-controller="AppCtrl">
+
+	      <form name="saveTemplateData" action="#" ng-submit="submit()">
+
+	    <div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">First Name</span>
+    <input type="text" ng-model="data.fName" placeholder="John">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Brown" ng-model="data.lName">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="john@brown.com" ng-model="data.email">
+  </label>
+  <label class="item item-input item-stacked-label">
+  <span class="input-label">Phone Number</span>
+  <input type="tel" placeholder="(555) 555-5555" ng-model="data.pNumber">
+</label>
+<label class="item item-input item-stacked-label">
+  <span class="input-label" >Reason for request:</span>
+  </label>
+
+<ion-radio ng-ng-model="choice" ng-repeat="r in reason">{{r}}</ion-radio>
+
+</div>
+<div class="padding">
+ <input type="submit" class="button-positive button button-block" name="submit" value="submit" ng-click="">
+ </div>
+ <div class="card">
+                    <div class="item item-text-wrap">
+                        Response: <b ng-bind="response"></b>
+                    </div>
+                </div>
+ </form>
+	    </ion-content>
+	  </ion-modal-view>
+	</script>
+</ion-view>
