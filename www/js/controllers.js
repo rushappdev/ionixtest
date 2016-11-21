@@ -103,8 +103,8 @@ $scope.data = {};
     $scope.submit = function(){
         // var link = 'http://nikola-breznjak.com/_testings/ionicPHP/api.php';
         // var link = 'http://127.0.0.1/main/Source/api.php';
-        // var link = 'http://rawgit.com/rushappdev/myAPis/master/api.php';
-        var link = 'api.php';
+        var link = 'http://rawgit.com/rushappdev/myAPis/master/api.php';
+        // var link = 'api.php';
 
         $http({
             method: 'POST',
