@@ -1,7 +1,7 @@
 {
   "name": "profileMe",
   "app_id": "37c0c1a9",
-   "proxies": [
+  "proxies": [
     {
       "path": "/api",
       "proxyUrl": "http://rawgit.com/rushappdev/myAPis/master/api.php"
